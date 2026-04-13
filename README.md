@@ -1,7 +1,7 @@
 # Crooked Launcher
 ## A Customizable Application Launcher for MacOS.
 
-![An Example of Crooked Launcher](example.jpeg)
+![An Example of Crooked Launcher](example.jpg)
 
 # About
 Crooked Launcher is a customizable application launcher for MacOS. Configurable in CSS, it allows you to make your setup just a bit more your style.
