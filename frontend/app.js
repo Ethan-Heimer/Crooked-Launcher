@@ -44,6 +44,11 @@ async function OnStart(){
         }
 
     })
+
+    window.addEventListener("blur", () => {
+        window.API.Exit();
+    });
+
 }
 
 async function GetApps(pattern, output, defaultSelection){
