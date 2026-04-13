@@ -95,6 +95,7 @@ function CreateButtons(parent, options){
     for(let i = 0; i < length; i++){
         const button = document.createElement('button');
         button.innerText = options[i].name;
+        button.classList.add("app-button")
 
         button.onclick = () => {
             OpenApp(options[i].application)

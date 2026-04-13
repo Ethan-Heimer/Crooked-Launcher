@@ -26,8 +26,9 @@ Crooked Launcher looks for a CSS file in `~/.config/crookedlauncher/` named `sty
 | body        | The main window of the launcher.                                   |
 | #search     | The section that holds the search form and search field.           |
 | #input-form | The form that holds the search bar.                                |
+| #input      | The search bar itself.                                             |
 | #output     | The container that holds the results returned by your search term. |
-| button      | The application returned by the search term.                       |
+| .app-button | The application returned by the search term.                       |
 | .selected   | The currently selected application.                                |
 
 **There is no limits as to what css you can use!**
@@ -69,7 +70,7 @@ body{
     flex-direction: column;
 }
 
-button{
+.app-button{
     padding: 10px;
     border: none;
     margin: 5px;
