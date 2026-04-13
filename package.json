@@ -11,9 +11,32 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "electron": "^41.2.0"
+    "electron": "^41.2.0",
+    "electron-builder": "^26.8.1"
   },
   "dependencies": {
     "express": "^5.2.1"
+  },
+  "build": {
+    "appId": "com.crookedlauncher.app",
+    "productName": "CrookedLauncher",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "package.json",
+      "main.js"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"]
+    }
   }
 }
