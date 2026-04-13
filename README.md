@@ -30,6 +30,8 @@ Crooked Launcher looks for a CSS file in `~/.config/crookedlauncher/` named `sty
 | button      | The application returned by the search term.                       |
 | .selected   | The currently selected application.                                |
 
+**There is no limits as to what css you can use!**
+
 Here is a starting config you can use!
 
 ```css
@@ -107,5 +109,5 @@ textarea:focus, input:focus{
 ```
 
 # Disclosure
-Listen, this uses Electron to render html and css as a standalone app. This isn't the fastest thing for that it's job is, theres other tools for that. This is just to make your
+Listen, this uses Electron to render html and css as a standalone app. This isn't the fastest thing for what it's job is, theres other tools for that. This is just to make your
 setup look just a bit nicer at the cost of performance. Also, I made this in less than a day out of boredem. Generative AI was not used to develop this project :).
