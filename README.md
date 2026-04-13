@@ -11,11 +11,12 @@ Crooked Launcher is a customizable application launcher for MacOS. Configurable 
 Run the following:
 ```
 git clone https://github.com/Ethan-Heimer/Crooked-Launcher && cd Crooked-Launcher
-npm i
+./build.sh
 ```
 # Use
-To lanunch CrookedLauncher, run `npm start`. This will start the launcher. **Starting Crooked Launcher depends on your system and your configuration.**
-You might need to try a few things to create a key bind to launch it automatically with somthing like aerospace or yabai. I'm gonna work on making this better in the future.
+The build script will create an application named CrookedLauncher.app that can be launched.
+I launched this app using a key binding my aerospace config like so: 
+`alt-space = 'exec-and-forget open -n /Users/user/bin/CrookedLauncher.app'`
 
 # Config
 
