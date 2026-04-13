@@ -1,4 +1,0 @@
-#! /bin/bash
-
-npm start --prefix "/Users/$(whoami)/Programming/Electron/Search"
-
