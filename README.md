@@ -25,6 +25,7 @@ Crooked Launcher looks for a CSS file in `~/.config/crookedlauncher/` named `sty
 | Selector    | Description                                                        |
 | ----------- | ------------------------------------------------------------------ |
 | body        | The main window of the launcher.                                   |
+| #view       | The container where all elements are held in.                      |
 | #search     | The section that holds the search form and search field.           |
 | #input-form | The form that holds the search bar.                                |
 | #input      | The search bar itself.                                             |

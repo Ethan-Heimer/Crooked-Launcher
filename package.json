@@ -25,6 +25,8 @@
     },
     "files": [
       "dist/**/*",
+      "frontend/**/*",
+      "backend/**/*",
       "node_modules/**/*",
       "package.json",
       "main.js"

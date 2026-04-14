@@ -1,13 +1,14 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
+const { setTimeout } = require('node:timers/promises');
 
+const path = require('path');
 const fs = require('node:fs');
 const os = require('os')
-const path = require('node:path')
 
-const API = require('./api.js')
+let win = null;
 
 const createWindow = (frontendPath) => {
-    const win = new BrowserWindow({
+    win = new BrowserWindow({
         width: 650,
         height: 450,
         frame: false,
@@ -30,25 +31,46 @@ const createWindow = (frontendPath) => {
         }) 
 
     });
+
 }
 
-const InitializeApp = (frontendPath) => {
-    app.whenReady().then(() => {
+const InitializeApp = async (frontendPath) => {
+    const API = require('./api.js')
+
+    let active = false;
+    app.whenReady().then(async () => {
         ipcMain.handle('Exit', () => app.quit())
         ipcMain.handle('Grep', async (event, pattern) => API.GetApplications(pattern))
         ipcMain.handle('Open', (error, application) => API.OpenApp(application))
 
-        createWindow(frontendPath) 
-        app.on('activate', () => {
-            if (BrowserWindow.getAllWindows().length === 0) createWindow()
+        createWindow(frontendPath);
+        app.on('activate', async () => {
+            if (BrowserWindow.getAllWindows().length === 0) 
+                createWindow(frontendPath);
         })
-    })
 
-    
+        active = true;
+
+    })
+ 
     app.on('window-all-closed', () => {
         if (process.platform !== 'darwin') {
             app.quit()
         }
+    })
+
+    while(!active){
+        await setTimeout(10)
+    }
+
+    return true;
+}
+
+const SendLostKeys = async (keys) => {
+    console.log("Found Keys: " + keys)
+
+    win.webContents.on('did-finish-load', () => {
+        win.webContents.send("FoundKeys", keys);
     })
 }
 
@@ -57,5 +79,5 @@ const Quit = () => {
 }
 
 module.exports = {
-    InitializeApp, Quit
+    InitializeApp, Quit, SendLostKeys
 }

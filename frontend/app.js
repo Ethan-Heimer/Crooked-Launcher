@@ -8,6 +8,14 @@ const body = document.body;
 
 const search = document.getElementById("search")
 
+window.API.onFoundKeys((keys) => {
+    input.value = keys;
+
+    if(keys !== ""){
+        GetApps(keys, output, 0)
+    }
+})
+
 OnStart();
 async function OnStart(){
     input.focus();
@@ -75,6 +83,7 @@ function UpdateSelection(currentSelected, selection, output){
     if(currentSelected >= 0){
         options[currentSelected].classList.remove('selected')
         options[selection].classList.add('selected')
+        options[selection].scrollIntoView({ behavior: 'smooth',block: 'center' });
 
         return selection
     }
